@@ -12,7 +12,7 @@ public class ShortestPathDAG {
     int n = adj.length;
 
 
-    topologicalSort(adj, stack);
+
 
     int dist[] = new int[adj.length];
     Arrays.fill(dist, Integer.MAX_VALUE);

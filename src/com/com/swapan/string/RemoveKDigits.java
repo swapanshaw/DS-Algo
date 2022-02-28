@@ -2,6 +2,9 @@ package com.com.swapan.string;
 
 import java.util.Stack;
 
+/**
+ * remove k digit from n digit integer to make the number smallest
+ */
 public class RemoveKDigits {
 
   static String removeKDigit(String str, int k) {
@@ -10,18 +13,14 @@ public class RemoveKDigits {
     if (n == 0) return "0";
 
     Stack<Character> stack = new Stack<>();
-
     for (int i = 0; i < n; i++) {
       Character c = str.charAt(i);
-
       while (!stack.isEmpty() && k > 0 && stack.peek() > c) {
         k--;
         stack.pop();
       }
-
       stack.push(c);
     }
-
     while (!stack.isEmpty() && k > 0) {
       stack.pop();
       k--;
@@ -38,7 +37,6 @@ public class RemoveKDigits {
   public static void main(String[] args)
   {
     String s = "121198";
-    int k = 5;
     System.out.println(removeKDigit(s, 3));
   }
 }

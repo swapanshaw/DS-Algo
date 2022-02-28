@@ -3,7 +3,6 @@ package com.com.swapan.string;
 public class LongestPalindromicSubstring {
   int maxLen = 0;
   int start = 0;
-  int end = 0;
 
   public String longestPalindrome(String s) {
     if (s == null || s.length() == 0) {

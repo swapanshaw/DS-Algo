@@ -32,15 +32,12 @@ public class RatInAMaze {
   }
 
   private static boolean solvemazeUti(int[][] maze, int n, int i, int j, int[][] sol) {
-
     // Base condition, when it reached at the end,
     if (i == n - 1 && j == n - 1 && maze[i][j] == 1) {
       sol[i][j] = 1;
       return true;
     }
-
     // do in the different direction, (i+1,j), (i-1,j), (i, j-1), (i, j+1)
-
     if (isSafe(maze, n, i, j, sol)) {
       sol[i][j] = 1;
       if (solvemazeUti(maze, n, i - 1, j, sol))
@@ -51,12 +48,10 @@ public class RatInAMaze {
         return true;
       if (solvemazeUti(maze, n, i, j + 1, sol))
         return true;
-
       // if non of the above works then backtrack
       sol[i][j] = 0;
       return false;
     }
-
     return false;
   }
 

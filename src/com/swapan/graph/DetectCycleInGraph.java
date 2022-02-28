@@ -29,7 +29,7 @@ public class DetectCycleInGraph {
     boolean recStack[] = new boolean[g.v];
 
     for (int i = 0; i < g.v; i++) {
-      if (detectCycleUtil(g, i, recStack, visited)) {
+      if (!visited[i] && detectCycleUtil(g, i, recStack, visited)) {
         return true;
       }
     }

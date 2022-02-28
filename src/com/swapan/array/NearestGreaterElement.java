@@ -1,8 +1,5 @@
 package com.swapan.array;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import java.util.Stack;
 
 public class NearestGreaterElement {
@@ -85,31 +82,22 @@ public class NearestGreaterElement {
   static int[] previousSmallerElement(int arr[]) {
     Stack<Integer> stack = new Stack<>();
     int len = arr.length;
-
     if (len == 0) return null;
-
     int pse[] = new int[len];
-
     stack.push(arr[0]);
     pse[0] = -1;
 
     for (int i = 1; i < len; i++) {
-
-      while (!stack.isEmpty() && arr[stack.peek()] >= arr[i]) {
+      while (!stack.isEmpty() && arr[i] <= arr[stack.peek()]) {
         stack.pop();
       }
-
       if (stack.isEmpty()) {
         pse[i] = -1;
       } else {
         pse[i] = stack.peek();
       }
-
-
       stack.push(i);
-
     }
-
     return pse;
   }
 
@@ -148,7 +136,7 @@ public class NearestGreaterElement {
     int[] nse = nextSmallerElement(arr);
     int maxArea = Integer.MIN_VALUE;
     for (int i = 0; i < arr.length; i++) {
-      maxArea = Math.max(maxArea, (nse[i] - pse[i]-1)*arr[i]);
+      maxArea = Math.max(maxArea, (nse[i] - pse[i] - 1) * arr[i]);
     }
 
     return maxArea;
