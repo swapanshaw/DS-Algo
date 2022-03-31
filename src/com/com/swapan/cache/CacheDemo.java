@@ -49,7 +49,6 @@ class CacheManager<K, V> implements Cache<K, V> {
       dQueue.remove(node);
       dQueue.addFirst(node);
     } else {
-
       if (map.size() == size) {
         Node<K, V> kvNode = dQueue.removeLast();
         map.remove(kvNode.key);

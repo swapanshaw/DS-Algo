@@ -12,6 +12,10 @@ class Node {
   public Node left;
   public Node right;
   public Node parent;
+
+  public Node(int val) {
+    this.val = val;
+  }
 }
 
 public class LowestCommonAncestor {
